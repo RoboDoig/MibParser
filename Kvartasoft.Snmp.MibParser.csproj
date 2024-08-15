@@ -1,9 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <Copyright>Kvarta Soft Ltd.</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/kvartasoft/MibParser</RepositoryUrl>

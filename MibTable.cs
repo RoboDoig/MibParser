@@ -19,14 +19,14 @@ namespace Kvartasoft.Snmp.MibParser
         //               TableName SyntaxName
         public Dictionary<string, string> TableRowSyntax;
 
-        public string? GetOid(string group)
+        public string GetOid(string group)
         {
-            SnmpItem? item = FindGroupInAllTables(group);
+            SnmpItem item = FindGroupInAllTables(group);
             if (item != null)
             {
                 if (item.OID == null)
                 {
-                    string? oid = GetOid(item.Group); // recursively search for oid and fix it
+                    string oid = GetOid(item.Group); // recursively search for oid and fix it
                     if (oid != null)
                     {
                         item.OID = oid + '.' + item.GetGroupOidIndex();
@@ -119,7 +119,7 @@ namespace Kvartasoft.Snmp.MibParser
             }
         }
 
-        private SnmpItem? FindGroupInAllTables(string groupName)
+        private SnmpItem FindGroupInAllTables(string groupName)
         {
             if (Groups.ContainsKey(groupName))
                 return Groups[groupName];
@@ -135,7 +135,7 @@ namespace Kvartasoft.Snmp.MibParser
             return null;
         }
 
-        private int AddGroup(Dictionary<string, SnmpItem> sortedGroups,SnmpItem? group,int i)
+        private int AddGroup(Dictionary<string, SnmpItem> sortedGroups,SnmpItem group,int i)
         {
             if (group != null)
                 if (group.Group == "#")

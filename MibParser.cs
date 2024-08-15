@@ -69,7 +69,7 @@ namespace Kvartasoft.Snmp.MibParser
         public SnmpCustomType CustomType { get; set; }
         public string Group { get; set; }
         public string Name { get; set; }
-        public string? OID { get; set; }
+        public string OID { get; set; }
         public string Description { get; set; }
         [JsonIgnore]
         public string MIB { get; set; }
@@ -156,7 +156,7 @@ namespace Kvartasoft.Snmp.MibParser
         private DecodingState NextState;
         private string CurrentMIB;
         private SnmpItem CurrentItem;
-        private SnmpCustomType? CurrentItemType;
+        private SnmpCustomType CurrentItemType;
         private int LineIndex; 
         private Dictionary<string, SnmpValueType> DefaultTypes;
 
@@ -329,7 +329,7 @@ namespace Kvartasoft.Snmp.MibParser
         {
             if (int.TryParse(element, out var index))
             {
-                string? group_oid = Tables[CurrentMIB].GetOid(CurrentItem.Group);
+                string group_oid = Tables[CurrentMIB].GetOid(CurrentItem.Group);
                 // Use index to calculate OID!!!!
 
                 if (group_oid == null)
@@ -769,7 +769,7 @@ namespace Kvartasoft.Snmp.MibParser
             if (stream != null)
             {  
                 StreamReader sr = new StreamReader(stream);
-                string? line;
+                string line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     mibParser.ParseLine(line);
@@ -802,7 +802,7 @@ namespace Kvartasoft.Snmp.MibParser
 
         public void ParseMibFile(string filename)
         {
-            string? line;
+            string line;
 
             FileInfo fi = new FileInfo(filename);
             if (fi.Exists)
@@ -837,7 +837,7 @@ namespace Kvartasoft.Snmp.MibParser
 
         public void ParseMibString(string mibText,string mibName)
         {
-            string? line;
+            string line;
 
             InitParsing(mibName);
 
